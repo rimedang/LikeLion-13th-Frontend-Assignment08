@@ -1,3 +1,5 @@
+//Myprofile.jsx
+
 import { useState, useEffect } from 'react';
 import { Octokit } from 'octokit';
 import '../styles/PageStyle.css';
@@ -45,7 +47,7 @@ export default function MyProfile() {
           <div>{profile.name}</div>
           <div>2005.09.30</div>
           <div>소프트웨어융합학부</div>
-          <a className="githuburl" href={profile.html_url} target="_blank">
+          <a className="githubUrl" href={profile.html_url} target="_blank">
             Github
           </a>
         </div>

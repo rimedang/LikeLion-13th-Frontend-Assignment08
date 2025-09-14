@@ -1,4 +1,4 @@
-// src/components/ContactForm.js
+// src/components/email.js
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles/PageStyle.css';

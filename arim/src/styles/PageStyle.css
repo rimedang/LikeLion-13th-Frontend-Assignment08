@@ -1,16 +1,33 @@
-.profileSection {
-  margin: 0;
-  height: 100vh;
-  background-color: #383535;
-  color: #fff;
-}
+/* PageStyle.css */
 
+/* body 스타일은 한 곳에 모아서 정의합니다. */
 body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
+/* 첫 번째 섹션의 고유 스타일 (배경, 글자색 등) */
+.profileSection {
+  background-color: #383535;
+  color: #fff;
+}
+
+.emailSection {
+  background-color: #383535;
+  color: #fff;
+}
+
+/* 모든 섹션에 공통으로 적용될 레이아웃 스타일 */
+.section {
+  margin: 0;
+  min-height: 100vh; /* height 대신 min-height 사용 */
+  display: flex;
+  align-items: center; /* 내용물을 세로 중앙에 배치 */
+  justify-content: center; /* 내용물을 가로 중앙에 배치 (추가하면 좋음) */
+}
+
+/* MyProfile 컴포넌트 스타일 */
 .profileTitle {
   margin: 0;
   text-align: center;
@@ -22,12 +39,12 @@ body {
 .profile {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  /* margin-top: 80px; */ /* .section의 align-items가 중앙정렬을 해주므로 불필요할 수 있습니다. */
   padding: 50px;
   border: 1px solid #fff;
   border-radius: 20px;
   max-width: 700px;
-  margin: 0 auto;
+  /* margin: 0 auto; */ /* .section의 justify-content가 중앙정렬을 해주므로 불필요할 수 있습니다. */
 }
 
 .profileImg {
@@ -67,13 +84,7 @@ body {
   margin-top: 100px;
 }
 
-.section {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
+/* MyRepo 컴포넌트 스타일 */
 .repoBox {
   padding: 10px;
 }
@@ -130,12 +141,7 @@ body {
   text-decoration: underline;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
+/* 네비게이션바 스타일 */
 .nav {
   position: fixed;
   background-color: #fff;
@@ -154,44 +160,55 @@ body {
   color: #42aaef;
 }
 
+/* Email(Contact) 폼 스타일 */
 .contact-form-container {
+  width: 100%; /* 화면이 작아지면 그에 맞게 너비가 줄어들도록 설정 */
+  max-width: 700px; /* PC 화면에서 폼이 너무 넓어지지 않게 최대 너비를 700px로 제한 */
+  padding: 50px; /* 폼 안쪽에 여유 공간을 넉넉하게 줌 */
+
+  /* 디자인 개선 */
+  background-color: #4a4747; /* 섹션 배경보다 살짝 밝은 색으로 구분감 주기 */
+  border-radius: 15px; /* 모서리를 부드럽게 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* 입체감을 주는 그림자 효과 */
+  box-sizing: border-box; /* 패딩과 테두리를 너비 계산에 포함시켜 레이아웃이 틀어지지 않게 함 */
+
+  /* 기존 스타일 유지 */
   display: flex;
   justify-content: center;
-  padding: 50px 20px;
-  background-color: #383535;
 }
 
+/* 실제 <form> 태그 부분 */
 .contact-form {
-  width: 100%;
-  max-width: 600px;
+  width: 100%; /* 부모(.contact-form-container)의 너비를 꽉 채움 */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px; /* 항목 사이의 간격을 조금 더 넓힘 */
 }
 
 .contact-form label {
   color: #fff;
   font-size: 18px;
-  margin-bottom: -5px;
+  margin-bottom: -10px; /* 레이블과 입력창 사이 간격 조정 */
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 15px; /* 입력창을 더 크게 만들어 클릭하기 쉽게 함 */
   border-radius: 8px;
   border: 1px solid #555;
-  background-color: #4a4747;
+  background-color: #383535; /* 배경과 같은 어두운 색으로 통일감 */
   color: #fff;
   font-size: 16px;
   box-sizing: border-box;
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: aquamarine;
-  box-shadow: 0 0 5px aquamarine;
+  border-color: aquamarine; /* 사용자가 선택한 입력창을 강조 */
+  box-shadow: 0 0 10px rgba(127, 255, 212, 0.5);
 }
 
 .contact-form textarea {
@@ -200,7 +217,7 @@ body {
 }
 
 .submit-btn {
-  padding: 12px 20px;
+  padding: 15px 20px;
   border: none;
   border-radius: 8px;
   background-color: aquamarine;
@@ -208,9 +225,12 @@ body {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-  background-color: #383535;
+  background-color: #fff; /* 호버 시 밝은 색으로 변경 */
+  color: #383535;
+  transform: translateY(-2px); /* 살짝 위로 떠오르는 효과 */
+  box-shadow: 0 5px 15px rgba(127, 255, 212, 0.4);
 }
